@@ -11,7 +11,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="has-navbar-fixed-bottom">
+    <nav class="navbar is-fixed-bottom is-dark">
+        <div class="container">
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">home</div>
+                    <div class="navbar-item">sign up</div>
+                    <div class="navbar-item">log in</div>
+                    <div class="navbar-item">log out</div>
+                </div>
+            </div>
+        </div>
+      </nav>
+
+
     <%= yield %>
   </body>
 </html>
