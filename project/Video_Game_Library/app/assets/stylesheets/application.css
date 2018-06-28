@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.arcade-image {
+    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/bQ8NFje/a-closeup-pan-across-a-vintage-arcade-game-machine-with-a-bright-illuminated-screen-that-changes-red-to-read-game-over-on-a-dark-arcade-background_vjgv_owze__F0000.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
