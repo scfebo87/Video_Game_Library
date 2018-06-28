@@ -1,0 +1,35 @@
+    <h1 class="has-text-weight-bold">Sign Up For New Account</h1>
+    <br>
+    <form action='/signup' method='post'>
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" name="email" placeholder="Email">
+                <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="user_name" placeholder="Username" pattern="[a-zA-Z0-9]+" title="Username can only have letters and numbers.">
+                <span class="icon is-small is=left">
+                <i class="fas fa-user"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="password" name= "password" placeholder="Password">
+                <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-success">
+                SignUp
+                </button>
+            </p>
+        </div>
+    </form>
