@@ -4,13 +4,12 @@
     <title>VideoGameLibrary</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   </head>
-
   <body class="has-navbar-fixed-bottom">
     <nav class="navbar is-fixed-bottom is-dark">
         <div class="container">
@@ -24,8 +23,6 @@
             </div>
         </div>
       </nav>
-
-
     <%= yield %>
   </body>
 </html>
