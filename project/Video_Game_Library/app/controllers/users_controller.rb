@@ -13,6 +13,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def show
+        @user = User.find(params[:id])
+        if @user && @user.id == session[:user_id]
+            render :show
+        else
+            redirect_to root_path
+        end
+    end
+    end
+
     private
 
     def user_params
