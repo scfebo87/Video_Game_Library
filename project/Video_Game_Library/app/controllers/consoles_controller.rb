@@ -15,6 +15,7 @@ class ConsolesController < ApplicationController
         @user = User.find(params[:id])
         @console = Console.new(console_params)
         if @console.save
+            @user.consoles << @console
             redirect_to user_path(@user)
         else
             render :new
@@ -25,4 +26,5 @@ class ConsolesController < ApplicationController
 
     def console_params
         params.require(:console).permit(:company, :name, :model)
+    end
 end
