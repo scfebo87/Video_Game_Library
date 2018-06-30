@@ -1,0 +1,35 @@
+    <h1 class="has-text-weight-bold">Add New Console</h1>
+    <br>
+    <%= form_for @console do %>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="email" name="console[company]" placeholder="Company">
+                <span class="icon is-small is-left">
+                <i class="fas fa-building"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="console[name]" placeholder="Name">
+                <span class="icon is-small is=left">
+                <i class="fas fa-gamepad"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="password" name= "console[model]" placeholder="Model">
+                <span class="icon is-small is-left">
+                <i class="fas fa-cog"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-success">
+                Add
+                </button>
+            </p>
+        </div>
+    <% end %>
