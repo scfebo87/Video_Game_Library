@@ -1,7 +1,7 @@
 class ConsolesController < ApplicationController
 
     def index
-        if params[:user_id]
+        if params[:id]
             @user = User.find_by(id: params[:user_id])
             @consoles = @user.consoles
         else
@@ -24,13 +24,12 @@ class ConsolesController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: params[:user_id])
-         @console = Console.find(params[:id])
-        if @user && @user.id == session[:user_id]
-            render :show
-        else
-            redirect_to user_path(@user)
-        end
+        @console = Console.find(params[:id])
+    end
+
+    def destroy
+        Console.find(params[:id]).destroy
+        redirect_to consoles_path
     end
 
     private
