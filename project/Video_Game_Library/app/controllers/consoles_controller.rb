@@ -1,7 +1,12 @@
 class ConsolesController < ApplicationController
 
     def index
-        @consoles = Console.all
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            @consoles = @user.consoles
+        else
+            @consoles = Console.all
+        end
     end
 
     def new
@@ -31,6 +36,6 @@ class ConsolesController < ApplicationController
     private
 
     def console_params
-        params.require(:console).permit(:company, :name, :model)
+        params.require(:console).permit(:company, :name, :model, :user_id)
     end
 end
