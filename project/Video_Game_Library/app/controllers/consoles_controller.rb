@@ -1,16 +1,16 @@
 class ConsolesController < ApplicationController
 
     def index
-        if params[:id]
-            @user = User.find_by(id: params[:user_id])
+        if params[:user_id]
+            @user = User.find_by(params[:user_id])
             @consoles = @user.consoles
         else
-            @consoles = Console.all
+            redirect_to root_path
         end
     end
 
     def new
-        @console = Console.new
+        @console = Console.new(user_id: params[:user_id])
     end
 
     def create
