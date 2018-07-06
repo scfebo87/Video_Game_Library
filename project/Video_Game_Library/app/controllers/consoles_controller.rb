@@ -10,7 +10,11 @@ class ConsolesController < ApplicationController
     end
 
     def new
-        @console = Console.new(user_id: params[:user_id])
+        if params[:user_id]
+            @console = Console.new(user_id: params[:user_id])
+        else
+            redirect_to root_path
+        end
     end
 
     def create
