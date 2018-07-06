@@ -1,6 +1,7 @@
     <h1 class="has-text-weight-bold">Add New Console</h1>
     <br>
     <%= form_for @console do %>
+    <%= f.hidden_field :user_id %>
         <div class="field">
             <p class="control has-icons-left">
                 <input class="input" type="text" name="console[company]" placeholder="Company">
