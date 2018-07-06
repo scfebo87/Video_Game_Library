@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users do
         resources :consoles, only: [:index, :show, :new, :edit]
     end
-    resources :consoles, only: [:index]
+    resources :consoles
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
 end
