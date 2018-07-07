@@ -23,7 +23,7 @@ class ConsolesController < ApplicationController
         if @console.save
             redirect_to user_path(@user)
         else
-            redirect_to new_console_path
+            redirect_to new_user_console_path
         end
     end
 
@@ -32,8 +32,9 @@ class ConsolesController < ApplicationController
     end
 
     def destroy
+        @user = User.find_by(id: session[:user_id])
         Console.find(params[:id]).destroy
-        redirect_to consoles_path
+        redirect_to user_consoles_path(@user)
     end
 
     private
