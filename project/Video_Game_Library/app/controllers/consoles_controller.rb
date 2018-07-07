@@ -29,6 +29,12 @@ class ConsolesController < ApplicationController
 
     def show
         @console = Console.find(params[:id])
+        @user = User.find(params[:user_id])
+        if @user && @console && @user.id == session[:user_id]
+            @consoles = @user.consoles
+        else
+            redirect_to root_path
+        end
     end
 
     def show2
