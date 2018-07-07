@@ -11,7 +11,7 @@ class ConsolesController < ApplicationController
 
     def new
         if params[:user_id]
-            @console = Console.new(user_id: params[:user_id])
+            @console = Console.new
         else
             redirect_to root_path
         end
@@ -21,13 +21,17 @@ class ConsolesController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @console = Console.new(console_params)
         if @console.save
-            redirect_to user_path(@user)
+            redirect_to new_user_console_game_path(@user, @console)
         else
             redirect_to new_user_console_path
         end
     end
 
     def show
+        @console = Console.find(params[:id])
+    end
+
+    def show2
         @console = Console.find(params[:id])
     end
 
@@ -40,6 +44,6 @@ class ConsolesController < ApplicationController
     private
 
     def console_params
-        params.require(:console).permit(:company, :name, :model, :user_id)
+        params.require(:console).permit(:company, :name, :model)
     end
 end
