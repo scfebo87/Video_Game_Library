@@ -1,14 +1,5 @@
 class GamesController < ApplicationController
 
-       def index
-        if params[:user_id]
-            @user = User.find_by(params[:user_id])
-            @games = @user.games
-        else
-            redirect_to root_path
-        end
-    end
-
     def new
         if params[:user_id]
             @game = Game.new(user_id: params[:user_id], console_id: params[:console_id])
@@ -23,13 +14,10 @@ class GamesController < ApplicationController
         if @game.save
             redirect_to user_path(@user)
         else
-            redirect_to new_user_console_game_path(@user)
+            redirect_to new_user_console_game_path(@user, @console)
         end
     end
 
-    def show
-        @game = Game.find(params[:id])
-    end
 
     def destroy
         Game.find(params[:id]).destroy
@@ -39,6 +27,6 @@ class GamesController < ApplicationController
     private
 
     def game_params
-        params.require(:console).permit(:company, :name, :model, :user_id, :console_id)
+        params.require(:game).permit(:title, :user_id, :console_id)
     end
 end
