@@ -1,8 +1,8 @@
 class ConsolesController < ApplicationController
 
     def index
-        if params[:user_id]
-            @user = User.find_by(params[:user_id])
+        @user = User.find(params[:user_id])
+        if @user && @user.id == session[:user_id]
             @consoles = @user.consoles
         else
             redirect_to root_path
