@@ -1,0 +1,21 @@
+    <h1 class="has-text-weight-bold">Add New Game</h1>
+    <br>
+    <%= form_for @game do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :console_id %>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="game[title]" placeholder="Title">
+                <span class="icon is-small is-left">
+                <i class="fas fa-face"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-success">
+                Add
+                </button>
+            </p>
+        </div>
+    <% end %>
