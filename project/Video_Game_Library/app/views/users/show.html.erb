@@ -1,2 +1,9 @@
-<%= @user.user_name %>
-<%= link_to "My Consoles", user_consoles_path(@user) %>
+<section class="hero is-fullheight arcade-image">
+    <div class="hero-head">
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title"> <%= link_to "---ENTER---", user_consoles_path(@user), {style: 'color:#000000;'} %></h1>
+        </div>
+    </div>
+  </section>
