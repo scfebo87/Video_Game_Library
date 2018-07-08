@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         end
     end
     resources :consoles
+    resources :games
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
     get '/users/:user_id/consoles/:id/games' => 'consoles#show2'
