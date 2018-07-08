@@ -1,3 +1,45 @@
-<% @consoles.uniq.each do |c|%>
-<%= c.name %>
-<% end %>
+    <section class="hero is-light is-fullheight">
+    <div class="hero-head">
+    <h1 class="has-text-weight-bold has-text-link is-capitalized title"><%=@user.user_name%>'s Consoles</h1>
+    <br>
+    <table class="table is-hoverable is-fullwidth has-background-light">
+        <thead>
+            <tr>
+            <th>Company</th>
+            <th>Name</th>
+            <th>Model</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @consoles.uniq.each do |c| %>
+            <tr>
+            <td><%=c.company%></td>
+            <td><%=c.name%></td>
+            <td><%=c.model%></td>
+            <td>
+            <div class="field is-grouped">
+            <form action="/users/<%= @user.id %>/consoles/<%= c.id %>/games">
+            <input type="submit" value="Games">
+            </form>
+            <form action="/users/<%= @user.id %>/consoles/<%= c.id %>/edit">
+            <input type="submit" value="Edit">
+            </form>
+            <form action="/users/<%= @user.id %>/consoles/<%= c.id %>/delete">
+            <input type="submit" value="Delete">
+            </form>
+            </div>
+            </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+  <div class="field is-grouped">
+  <form action='/users/<%= @user.id %>/consoles/new'>
+    <button class="button is-success">
+      Add New Console
+    </button>
+  </form>
+  </div>
+  </section>
