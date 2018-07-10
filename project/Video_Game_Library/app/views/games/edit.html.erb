@@ -16,9 +16,15 @@
                 <button class="button is-success">
                 Edit
                 </button>
-                <button class="button is-danger">
-                Delete
-                </button>
             </p>
         </div>
     <% end %>
+<br>
+<div class="field">
+    <p class="control">
+        <form action="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/<%= @game.id %>/destroy" method="delete">
+            <button class="button is-danger">
+                Delete
+            </button>
+        </form>
+</div>
