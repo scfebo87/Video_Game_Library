@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
     get '/users/:user_id/consoles/:id/destroy' => 'consoles#destroy'
+    get '/users/:user_id/consoles/:console_id/games/:id/destroy' => 'games#destroy'
 end
