@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
 
     def new
-        if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        if @user && @user.id == session[:user_id]
             @game = Game.new(user_id: params[:user_id], console_id: params[:console_id])
         else
             redirect_to root_path
@@ -20,8 +21,12 @@ class GamesController < ApplicationController
 
     def edit
         @user = User.find_by(id: params[:user_id])
-        @console = Console.find_by(id: params[:console_id])
-        @game = Game.find(params[:id])
+        if @user && @user.id == session[:user_id]
+            @console = Console.find_by(id: params[:console_id])
+            @game = Game.find(params[:id])
+        else
+            redirect_to root_path
+        end
     end
 
     def update
