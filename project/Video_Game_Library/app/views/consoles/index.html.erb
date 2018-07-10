@@ -19,13 +19,13 @@
             <td><%=c.model%></td>
             <td>
             <div class="field is-grouped">
-            <form action="/users/<%= @user.id %>/consoles/<%= c.id %>/games">
+            <form action="/users/<%= @user.id %>/consoles/<%= c.id %>">
             <input type="submit" value="Games">
             </form>
             <form action="/users/<%= @user.id %>/consoles/<%= c.id %>/edit">
             <input type="submit" value="Edit">
             </form>
-            <form action="/users/<%= @user.id %>/consoles/<%= c.id %>/delete">
+            <form action="/users/<%= @user.id %>/consoles/<%= c.id %>/destroy" method="delete">
             <input type="submit" value="Delete">
             </form>
             </div>
