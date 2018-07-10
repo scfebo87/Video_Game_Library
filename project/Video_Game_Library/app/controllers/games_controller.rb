@@ -12,12 +12,26 @@ class GamesController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @game = Game.new(game_params)
         if @game.save
-            redirect_to user_path(@user)
+            redirect_to user_consoles_path(@user)
         else
             redirect_to new_user_console_game_path(@user, @console)
         end
     end
 
+    def edit
+        @game = Game.find(params[:id])
+    end
+
+    def update
+        @user = User.find_by(id: session[:user_id])
+        @game = Game.find(params[:id])
+        @game.assign_attributes(game_params)
+        if @game.save
+            redirect_to user_consoles_path(@user)
+        else
+            render :edit
+        end
+    end
 
     def destroy
         Game.find(params[:id]).destroy
