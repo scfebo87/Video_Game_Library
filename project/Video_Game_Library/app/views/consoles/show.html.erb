@@ -1,1 +1,3 @@
-<%= @console.name %>
+<% @console.games.each do |g|%>
+<a href="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/<%=g.id %>/edit"><%= g.title %></a>
+<% end %>
