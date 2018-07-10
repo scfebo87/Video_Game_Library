@@ -1,0 +1,35 @@
+    <h1 class="has-text-weight-bold">Edit Console</h1>
+    <br>
+    <%= form_for @console do |f| %>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="console[company]" value="<%= @console.company %>">
+                <span class="icon is-small is-left">
+                <i class="fas fa-building"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" name="console[name]" value="<%= @console.name %>">
+                <span class="icon is-small is=left">
+                <i class="fas fa-gamepad"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" name= "console[model]" value="<%= @console.model %>">
+                <span class="icon is-small is-left">
+                <i class="fas fa-cog"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-success">
+                Edit
+                </button>
+            </p>
+        </div>
+    <% end %>
