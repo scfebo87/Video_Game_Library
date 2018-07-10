@@ -1,9 +1,13 @@
 class ConsolesController < ApplicationController
 
     def index
-        @user = User.find(params[:user_id])
-        if @user && @user.id == session[:user_id]
-            @consoles = @user.consoles
+        if params[:user_id]
+            if User.find(params[:user_id])
+                @user = User.find(params[:user_id])
+                @consoles = @user.consoles
+            else
+                redirect_to root_path
+            end
         else
             redirect_to root_path
         end
@@ -23,7 +27,7 @@ class ConsolesController < ApplicationController
         if @console.save
             redirect_to new_user_console_game_path(@user, @console)
         else
-            redirect_to new_user_console_path
+            render :new
         end
     end
 
@@ -37,13 +41,24 @@ class ConsolesController < ApplicationController
         end
     end
 
-    def show2
-        @console = Console.find(params[:id])
-        @user = User.find(params[:user_id])
-        if @user && @console && @user.id == session[:user_id]
-            @consoles = @user.consoles
+
+    def edit
+        if params[:user_id]
+            @console = Console.find(params[:id])
+            @user = User.find(params[:user_id])
         else
-            redirect_to root_path
+            redirect_to user_consoles_path(@user)
+        end
+    end
+
+    def update
+        @user = User.find_by(id: session[:user_id])
+        @console = Console.find(params[:id])
+        @console.assign_attributes(console_params)
+        if @console.save
+            redirect_to user_consoles_path(@user)
+        else
+            render :edit
         end
     end
 
