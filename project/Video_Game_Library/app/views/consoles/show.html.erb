@@ -1,3 +1,11 @@
 <% @console.games.each do |g|%>
 <a href="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/<%=g.id %>/edit"><%= g.title %></a>
 <% end %>
+<br>
+<div class="field is-grouped">
+  <form action='/users/<%= @user.id %>/consoles/<%= @console.id %>/games/new'>
+    <button class="button is-success">
+      Add New Game
+    </button>
+  </form>
+  </div>
