@@ -3,12 +3,12 @@ Rails.application.routes.draw do
     root 'application#index'
     resources :users do
         resources :consoles, only: [:index, :show, :new, :edit] do
-            resources :games, only: [:new]
+            resources :games, only: [:new, :edit]
         end
     end
     resources :consoles
     resources :games
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
-    get '/users/:user_id/consoles/:id/games' => 'consoles#show2'
+    get '/users/:user_id/consoles/:id/destroy' => 'consoles#destroy'
 end
