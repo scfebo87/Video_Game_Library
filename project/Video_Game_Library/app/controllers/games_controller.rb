@@ -19,6 +19,8 @@ class GamesController < ApplicationController
     end
 
     def edit
+        @user = User.find_by(id: params[:user_id])
+        @console = Console.find_by(id: params[:console_id])
         @game = Game.find(params[:id])
     end
 
@@ -35,7 +37,8 @@ class GamesController < ApplicationController
 
     def destroy
         Game.find(params[:id]).destroy
-        redirect_to user_console_games_path(@user)
+        @user = User.find_by(id: session[:user_id])
+        redirect_to user_consoles_path(@user)
     end
 
     private
