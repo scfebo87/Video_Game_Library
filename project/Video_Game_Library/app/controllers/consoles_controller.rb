@@ -7,6 +7,7 @@ class ConsolesController < ApplicationController
     end
 
     def new
+        @console = Console.new
     end
 
     def create
@@ -55,6 +56,6 @@ class ConsolesController < ApplicationController
     end
 
     def require_login
-    return head(:forbidden) unless session.include? :user_id
-  end
+        return head(:forbidden) unless session.include? :user_id
+    end
 end
