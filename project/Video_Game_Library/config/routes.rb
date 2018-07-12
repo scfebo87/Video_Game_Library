@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :games
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
+    get '/auth/facebook/callback' => 'fessions#create'
     get '/logout' => 'sessions#destroy'
     post '/logout' => 'sessions#destroy'
     get '/users/:user_id/consoles/:id/destroy' => 'consoles#destroy'
