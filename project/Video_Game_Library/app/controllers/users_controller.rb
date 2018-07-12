@@ -11,7 +11,9 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
+        if flash[:message]
+            flash[:message].clear
+        elsif @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else

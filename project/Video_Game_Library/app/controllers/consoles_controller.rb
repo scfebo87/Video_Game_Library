@@ -13,9 +13,12 @@ class ConsolesController < ApplicationController
     def create
         @user = User.find_by(id: session[:user_id])
         @console = Console.new(console_params)
-        if @console.save
+        if flash[:message]
+            flash[:message].clear
+        elsif @console.save
             redirect_to new_user_console_game_path(@user, @console)
         else
+            flash[:message] = "Please fill out all fields"
             render :new
         end
     end
