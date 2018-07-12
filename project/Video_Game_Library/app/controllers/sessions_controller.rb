@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def new
-        @user = User.find_by(id: params[:user_id])
+        @user = User.find_by(id: session[:user_id])
         if @user && @user.id == session[:user_id]
             redirect_to user_path(@user)
         else
@@ -11,10 +11,11 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.find_by(email: params[:email])
-        if @user && @user.authenticate(params[:password_digest])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
+            flash[:message] = "Username or Password is Incorrect"
             render :new
         end
      end
