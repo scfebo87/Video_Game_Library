@@ -1,4 +1,8 @@
-    <h1 class="has-text-weight-bold">Add New Console</h1>
+<% if !flash.empty? %>
+  <div class="notification is-danger has-text-weight-bold">
+  <%= flash[:message] %>
+  </div>
+<h1 class="has-text-weight-bold">Add New Console</h1>
     <br>
     <%= form_for @console do |f| %>
         <div class="field">

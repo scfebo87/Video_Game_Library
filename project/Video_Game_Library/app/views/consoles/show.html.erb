@@ -1,11 +1,18 @@
-<% @console.games.each do |g|%>
-<a href="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/<%=g.id %>/edit"><%= g.title %></a>
-<% end %>
-<br>
-<div class="field is-grouped">
-  <form action='/users/<%= @user.id %>/consoles/<%= @console.id %>/games/new'>
-    <button class="button is-success">
-      Add New Game
-    </button>
-  </form>
-  </div>
+<section class="hero is-fullheight arcade-image">
+    <div class="hero-head">
+        <form action="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/new">
+            <button class="button is-success">
+                Add New Game
+            </button>
+        </form>
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-4">
+                <% @console.games.each do |g|%>
+                    <a href="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/<%=g.id %>/edit"><%= g.title %></a><br>
+                <% end %>
+            </h1>
+        </div>
+    </div>
+  </section>
