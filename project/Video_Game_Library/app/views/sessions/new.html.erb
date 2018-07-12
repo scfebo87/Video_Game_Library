@@ -1,4 +1,9 @@
-    <h1 class="has-text-weight-bold">Please Sign In</h1>
+<% if !flash.empty? %>
+  <div class="notification is-danger has-text-weight-bold">
+  <%= flash[:message] %>
+  </div>
+<% end %>
+<h1 class="has-text-weight-bold">Please Sign In</h1>
     <br>
     <form action='/login' method='post'>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -12,7 +17,7 @@
         </div>
         <div class="field">
             <p class="control has-icons-left">
-                <input class="input" type="password" name= "password_digest" placeholder="Password">
+                <input class="input" type="password" name= "password" placeholder="Password">
                 <span class="icon is-small is-left">
                 <i class="fas fa-lock"></i>
                 </span>
@@ -26,3 +31,5 @@
             </p>
         </div>
     </form>
+<br>
+<span><%= link_to('Log in with Facebook!', '/auth/facebook') %></span>
