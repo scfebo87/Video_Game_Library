@@ -16,6 +16,7 @@ class GamesController < ApplicationController
     end
 
     def edit
+        @user = User.find_by(id: session[:user_id])
         @console = Console.find_by(id: params[:console_id])
         @game = Game.find(params[:id])
     end
@@ -45,6 +46,6 @@ class GamesController < ApplicationController
 
     def require_login
         return head(:forbidden) unless session.include? :user_id
-  end
+    end
 
 end
