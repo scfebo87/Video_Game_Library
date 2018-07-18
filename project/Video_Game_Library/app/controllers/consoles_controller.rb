@@ -52,6 +52,11 @@ class ConsolesController < ApplicationController
         redirect_to user_consoles_path(@user)
     end
 
+    def most
+        @user = User.find(params[:user_id])
+        @consoles = @user.consoles
+    end
+
     private
 
     def console_params
