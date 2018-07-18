@@ -2,11 +2,17 @@ class GamesController < ApplicationController
     before_action :require_login
 
     def new
+        @user = User.find(params[:user_id])
         @game = Game.new(user_id: params[:user_id], console_id: params[:console_id])
+        if @user && @user.id == session[:user_id]
+            render :new
+        else
+            redirect_to root_path
+        end
     end
 
     def create
-        @user = User.find_by(id: session[:user_id])
+        @user = User.find(params[:user_id])
         @game = Game.new(game_params)
         if flash[:message]
             flash[:message].clear
@@ -19,13 +25,18 @@ class GamesController < ApplicationController
     end
 
     def edit
-        @user = User.find_by(id: session[:user_id])
+        @user = User.find(params[:user_id])
         @console = Console.find_by(id: params[:console_id])
         @game = Game.find(params[:id])
+        if @user && @user.id == session[:user_id] && @game.user_id == session[:user_id]
+            render :edit
+        else
+            redirect_to root_path
+        end
     end
 
     def update
-        @user = User.find_by(id: session[:user_id])
+        @user = User.find(params[:user_id])
         @game = Game.find(params[:id])
         @game.assign_attributes(game_params)
         if @game.save

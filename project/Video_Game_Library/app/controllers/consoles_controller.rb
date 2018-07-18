@@ -4,10 +4,21 @@ class ConsolesController < ApplicationController
     def index
         @user = User.find(params[:user_id])
         @consoles = @user.consoles
+         if @user && @user.id == session[:user_id]
+             render :index
+         else
+             redirect_to root_path
+         end
     end
 
     def new
+        @user = User.find(params[:user_id])
         @console = Console.new
+        if @user && @user.id == session[:user_id]
+            render :new
+        else
+            redirect_to root_path
+        end
     end
 
     def create
@@ -27,12 +38,22 @@ class ConsolesController < ApplicationController
         @console = Console.find(params[:id])
         @user = User.find(params[:user_id])
         @consoles = @user.consoles
+        if @user && @user.id == session[:user_id]
+            render :show
+        else
+            redirect_to root_path
+        end
     end
 
 
     def edit
         @console = Console.find(params[:id])
         @user = User.find(params[:user_id])
+        if @user && @user.id == session[:user_id]
+            render :edit
+        else
+            redirect_to root_path
+        end
     end
 
     def update
@@ -55,6 +76,11 @@ class ConsolesController < ApplicationController
     def most
         @user = User.find(params[:user_id])
         @consoles = @user.consoles
+        if @user && @user.id == session[:user_id]
+            render :most
+        else
+            redirect_to root_path
+        end
     end
 
     private
