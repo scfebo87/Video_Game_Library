@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     post '/logout' => 'sessions#destroy'
     get '/users/:user_id/consoles/:id/destroy' => 'consoles#destroy'
     get '/users/:user_id/consoles/:console_id/games/:id/destroy' => 'games#destroy'
+    get '/users/:user_id/most_games' => 'consoles#most'
 end
