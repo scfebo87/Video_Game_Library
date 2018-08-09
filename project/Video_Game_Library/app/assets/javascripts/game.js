@@ -19,3 +19,8 @@ $(function () {
         });
     });
   })
+
+  Item.template = _.template("<td><%= description %></td>");
+  Item.prototype.render = function() { 
+      return Item.template(this)
+  }
