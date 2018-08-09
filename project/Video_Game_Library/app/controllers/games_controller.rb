@@ -23,6 +23,21 @@ class GamesController < ApplicationController
             render :new
         end
     end
+    
+    def show
+        @user = User.find(session[:user_id])
+        @console = Console.find_by(id: params[:console_id])
+        @game = Game.find_by(id: params[:id])
+        @note = Note.new(game_id: params[:id])
+        if @user && @user.id == session[:user_id] && @game.user_id == @user.id
+            respond_to do |format|
+                format.html {render :show}
+                format.json {render json: @game.to_json }
+            end
+        else
+            redirect_to root_path 
+        end
+    end
 
     def edit
         @user = User.find(params[:user_id])
