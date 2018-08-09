@@ -66,3 +66,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem "rack-flash3"
+gem "jquery-rails"
+gem 'handlebars_assets'
+gem 'active_model_serializers'
