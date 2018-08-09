@@ -24,3 +24,21 @@ $(function () {
   Item.prototype.render = function() { 
       return Item.template(this)
   }
+ $("#noteForm").on("submit", function(e) {
+    e.preventDefault();
+    var $form = $(this); 
+    var action = $form.attr("action");
+    var params = $form.serialize();  
+    $.ajax({
+        url: action, 
+        data: params, 
+        dataType: "json", 
+        method: "POST"
+    })
+       .success(function(json) {
+        var item = new Item(json)
+        var itemN = item.render()
+        $("#gameNote").append(itemN)
+     
+    })
+   })
