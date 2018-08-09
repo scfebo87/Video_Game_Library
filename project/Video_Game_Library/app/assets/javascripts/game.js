@@ -1,3 +1,7 @@
+function Item(attr){
+    this.description = attr.description
+}
+
 $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
