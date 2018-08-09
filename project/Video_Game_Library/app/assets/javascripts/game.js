@@ -42,3 +42,8 @@ $(function () {
      
     })
    })
+
+     $("#gameNotes").on("click", function() {
+      $("#noteTable").removeClass("is-hidden");
+  })
+})
