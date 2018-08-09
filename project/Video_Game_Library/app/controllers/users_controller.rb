@@ -30,6 +30,19 @@ class UsersController < ApplicationController
             redirect_to root_path
         end
     end
+    
+    def games 
+        @user = User.find(session[:user_id])
+        @games = @user.games
+        if @user && @user.id == session[:user_id]
+            respond_to do |format|
+                format.html {render :games}
+                format.json {render json: @games.to_json(only: [:title])}
+            end
+        else
+            redirect_to root_path
+        end
+    end
 
     private
 
