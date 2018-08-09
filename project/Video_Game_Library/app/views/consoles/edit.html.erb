@@ -1,6 +1,6 @@
     <h1 class="has-text-weight-bold">Edit Console</h1>
     <br>
-    <%= form_for @console do |f| %>
+    <%= form_for [@user, @console] do |f| %>
         <div class="field">
             <p class="control has-icons-left">
                 <input class="input" type="text" name="console[company]" value="<%= @console.company %>">
