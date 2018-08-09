@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(version: 2018_07_18_193729) do
     t.integer "user_id"
     t.integer "console_id"
   end
+  
+  create_table "notes", force: :cascade do |t|
+    t.string "description"
+    t.integer "game_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
