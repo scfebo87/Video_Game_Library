@@ -6,3 +6,12 @@ $(function () {
       $(".js-next").attr("data-id", json["id"]);
     });
   });
+
+  $(".listLink").on("click", function(e) {
+      e.preventDefault();
+    $.get("/users/:user_id/games.json", function(json) {
+        json.forEach(function(game){
+            $("#gameList").append("<li>" + game.title + "</li>")
+        });
+    });
+  })
