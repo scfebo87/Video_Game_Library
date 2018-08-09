@@ -5,7 +5,7 @@
 <% end %>
 <h1 class="has-text-weight-bold">Add New Game</h1>
     <br>
-    <%= form_for @game do |f| %>
+    <%= form_for [@user, @console, @game] do |f| %>
     <%= f.hidden_field :user_id %>
     <%= f.hidden_field :console_id %>
         <div class="field">
