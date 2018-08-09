@@ -1,0 +1,38 @@
+<section class="hero is-light is-fullheight">
+    <div class="hero-head">
+        <h1 class="has-text-weight-bold is-capitalized title"><a href="#" id="gameNotes">Notes on <%= @game.title %></a></h1>
+    <br>
+    <table class="table is-hoverable is-fullwidth is-hidden has-background-light" id="noteTable">
+        <thead>
+            <tr>
+            <th>Notes</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @game.notes.each do |n| %>
+            <tr class="noteList">
+            <td><%= n.description %></td>
+            </tr>
+            <% end %>
+            <tr id="gameNote">
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  <%= form_for @note, :html=> {:id => 'noteForm'} do |f| %>
+    <%= f.hidden_field :game_id %>
+        <div class="field">
+            <p>
+                <input class="input" type="text" name="note[description]" placeholder="Note" id="noteDescription">
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-success">
+                Add
+                </button>
+            </p>
+        </div>
+    <% end %>
+</section>
