@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'application#index'
     resources :users do
-        resources :consoles, only: [:index, :show, :new, :edit] do
-            resources :games, only: [:new, :edit]
+        resources :consoles, only: [:index, :show, :new, :create, :edit] do
+            resources :games, only: [:new, :create, :edit]
         end
     end
     resources :notes
