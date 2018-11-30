@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
     def new
         @user = User.find(params[:user_id])
-        @console = Console.find_by(params[:console_id])
+        @console = Console.find_by_id(params[:console_id])
         @game = Game.new(user_id: params[:user_id], console_id: params[:console_id])
         if @user && @user.id == session[:user_id]
             render :new
