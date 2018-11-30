@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: video-game-library_production
+  url: <%= ENV["DATABASE_URL"] %>
