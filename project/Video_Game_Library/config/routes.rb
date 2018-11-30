@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     root 'application#index'
     resources :users do
         resources :consoles, only: [:index, :show, :new, :create, :edit] do
-            resources :games, only: [:new, :create, :edit]
+            resources :games, only: [:new, :create, :edit, :show]
         end
     end
     resources :notes
