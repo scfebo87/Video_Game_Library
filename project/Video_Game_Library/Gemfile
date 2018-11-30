@@ -69,4 +69,4 @@ gem "rack-flash3"
 gem "jquery-rails"
 gem 'handlebars_assets'
 gem 'active_model_serializers'
-gem 'rails_12factor', group: :production
+gem 'rails_12factor'
