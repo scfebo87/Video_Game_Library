@@ -9,7 +9,7 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <h1 class="title is-4" id="gameTitle">
-                <div id="gameList"><a href="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/<%= @console.games.first.id %>" id="gameLink"><%= @console.games.first.title %></a></div>
+                <div id="gameList"><a href="/users/<%= @user.id %>/consoles/<%= @console.id %>/games/<%= @console.games.first.id %>/edit" id="gameLink"><%= @console.games.first.title %></a></div>
             </h1>
             <a href="#" class="js-next" data-id="<%=@console.games.first.id %>>">Next...</a><br>
         </div>
